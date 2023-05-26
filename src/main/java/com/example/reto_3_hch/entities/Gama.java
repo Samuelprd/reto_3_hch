@@ -6,25 +6,25 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "category")
-public class Category implements Serializable {
+@Table(name = "gama")
+public class Gama implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idGama;
     private String name;
     private String description;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
-    @JsonIgnoreProperties("category")
-    private List<Library> libs;
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "gama")
+    @JsonIgnoreProperties("gama")
+    private List<Car> cars;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdGama() {
+        return idGama;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdGama(Integer idGama) {
+        this.idGama = idGama;
     }
 
     public String getName() {
@@ -43,11 +43,11 @@ public class Category implements Serializable {
         this.description = description;
     }
 
-    public List<Library> getLibs() {
-        return libs;
+    public List<Car> getCars() {
+        return cars;
     }
 
-    public void setLibs(List<Library> libs) {
-        this.libs = libs;
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 }
