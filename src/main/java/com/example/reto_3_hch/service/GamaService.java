@@ -16,7 +16,7 @@ public class GamaService {
 
     public List<Gama> getAll(){return gamaRepository.getAll();
     }
-    public Optional<Gama> getCategory(int id){return gamaRepository.getGama(id);}
+    public Optional<Gama> getGama(int id){return gamaRepository.getGama(id);}
     public Gama save(Gama p){
         if (p.getIdGama()==null){
             return  gamaRepository.save(p);

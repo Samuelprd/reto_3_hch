@@ -49,6 +49,12 @@ public class ClientService {
                 if (p.getAge()!=null){
                     q.get().setAge(p.getAge());
                 }
+                if (p.getMessages()!=null){
+                    q.get().setMessages(p.getMessages());
+                }
+                if (p.getReservations()!=null){
+                    q.get().setReservations(p.getReservations());
+                }
 
                 clientRepository.save(q.get());
                 return q.get();

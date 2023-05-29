@@ -3,6 +3,7 @@ package com.example.reto_3_hch.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "car")
@@ -18,8 +19,16 @@ public class Car implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "gamaId")
-    @JsonIgnoreProperties("car")
+    @JsonIgnoreProperties("cars")
     private Gama gama;
+
+    @OneToMany
+    @JsonIgnoreProperties({"car", "client"})
+    private List<Message> messages;
+
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "car")
+    @JsonIgnoreProperties({"car", "client"})
+    private List<Reservation> reservations;
 
     public Integer getIdCar() {
         return idCar;
@@ -67,5 +76,21 @@ public class Car implements Serializable {
 
     public void setGama(Gama gama) {
         this.gama = gama;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }

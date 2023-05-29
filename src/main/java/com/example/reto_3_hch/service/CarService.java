@@ -17,8 +17,7 @@ public class CarService {
     public List<Car> getAll(){
         return carRepository.getAll();
     }
-    public Optional<Car> getLibrary(int id){
-        return carRepository.getCar(id);
+    public Optional<Car> getCar(int id){return carRepository.getCar(id);
     }
     public Car save(Car p){
         if (p.getIdCar()==null){
@@ -50,6 +49,12 @@ public class CarService {
                 }
                 if (p.getGama()!=null){
                     q.get().setGama(p.getGama());
+                }
+                if (p.getMessages()!=null){
+                    q.get().setMessages(p.getMessages());
+                }
+                if (p.getReservations()!=null){
+                    q.get().setReservations(p.getReservations());
                 }
                 carRepository.save(q.get());
                 return q.get();

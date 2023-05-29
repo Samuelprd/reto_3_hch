@@ -1,7 +1,9 @@
 package com.example.reto_3_hch.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "client")
@@ -16,9 +18,13 @@ public class Client implements Serializable {
     private Integer age;
 
 
-    /*@OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
     @JsonIgnoreProperties("client")
-    private List<Library> libs;*/
+    private List<Message> messages;
+
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
+    @JsonIgnoreProperties("client")
+    private List<Reservation> reservations;
 
     public Integer getIdClient() {
         return idClient;
@@ -26,6 +32,22 @@ public class Client implements Serializable {
 
     public void setIdClient(Integer idClient) {
         this.idClient = idClient;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -44,19 +66,19 @@ public class Client implements Serializable {
         this.age = age;
     }
 
-    public String getPassword() {
-        return password;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
-    public String getEmail() {
-        return email;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }

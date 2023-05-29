@@ -18,8 +18,7 @@ public class GamaRepository {
         public List<Gama> getAll(){
             return (List<Gama>) gamaCrudRepository.findAll();
         }
-        public Optional<Gama> getGama(int id){return gamaCrudRepository.findById(id);
-        }
+        public Optional<Gama> getGama(int id){return gamaCrudRepository.findById(id);}
         public Gama save(Gama p){
             return gamaCrudRepository.save(p);
         }
