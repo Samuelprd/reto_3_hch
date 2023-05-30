@@ -20,7 +20,7 @@ public class ReservationService {
         return reservationRepository.getReservation(id);
     }
     public Reservation save(Reservation p){
-        /*if (p.getIdReservation()==null){
+        if (p.getIdReservation()==null){
             return  reservationRepository.save(p);
         }else {
             Optional<Reservation> e= reservationRepository.getReservation(p.getIdReservation());
@@ -29,20 +29,7 @@ public class ReservationService {
             }else{
                 return reservationRepository.save(p);
             }
-        }*/
-        if (p.getIdReservation() == null) {
-            return reservationRepository.save(p);
-        } else {
-            Optional<Reservation> e = reservationRepository.getReservation(p.getIdReservation());
-            if (e.isPresent()) {
-                return reservationRepository.save(p); // Guardar reserva existente en lugar de la nueva reserva
-            } else {
-                return p;
-            }
         }
-
-
-
     }
     public Reservation update(Reservation p){
         if (p.getIdReservation()!=null){
@@ -65,6 +52,9 @@ public class ReservationService {
                 }
                 if (p.getScore()!=null){
                     q.get().setScore(p.getScore());
+                }
+                if (p.getMessages()!=null){
+                    q.get().setMessages(p.getMessages());
                 }
 
                 reservationRepository.save(q.get());
