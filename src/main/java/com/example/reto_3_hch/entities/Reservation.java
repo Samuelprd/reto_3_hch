@@ -28,6 +28,10 @@ public class Reservation implements Serializable {
     @JsonIgnoreProperties("reservation")
     private Score score;
 
+    @OneToOne
+    @JsonIgnoreProperties("reservation")
+    private Message message;
+
     public Integer getIdReservation() {
         return idReservation;
     }
@@ -82,5 +86,13 @@ public class Reservation implements Serializable {
 
     public void setScore(Score score) {
         this.score = score;
+    }
+
+    public Message getMessage() {
+        return message;
+    }
+
+    public void setMessage(Message message) {
+        this.message = message;
     }
 }

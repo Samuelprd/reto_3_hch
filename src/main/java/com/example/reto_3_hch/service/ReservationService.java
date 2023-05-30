@@ -53,6 +53,9 @@ public class ReservationService {
                 if (p.getScore()!=null){
                     q.get().setScore(p.getScore());
                 }
+                if (p.getMessage()!=null){
+                    q.get().setMessage(p.getMessage());
+                }
 
                 reservationRepository.save(q.get());
                 return q.get();

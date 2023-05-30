@@ -23,6 +23,10 @@ public class Message implements Serializable {
     @JsonIgnoreProperties({"messages", "reservations"})
     private Client client;
 
+    @OneToOne
+    @JsonIgnoreProperties("messages")
+    private Reservation reservation;
+
     public Integer getIdMessage() {
         return idMessage;
     }
@@ -53,5 +57,13 @@ public class Message implements Serializable {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
     }
 }
