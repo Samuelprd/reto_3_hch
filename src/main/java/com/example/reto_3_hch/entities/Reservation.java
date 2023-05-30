@@ -29,10 +29,6 @@ public class Reservation implements Serializable {
     @JsonIgnoreProperties("reservation")
     private Score score;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "reservation")
-    @JsonIgnoreProperties("reservation")
-    private List<Message> messages;
-
     public Integer getIdReservation() {
         return idReservation;
     }
@@ -87,13 +83,5 @@ public class Reservation implements Serializable {
 
     public void setScore(Score score) {
         this.score = score;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
     }
 }
