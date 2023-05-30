@@ -45,9 +45,6 @@ public class MessageService {
                 if (p.getClient()!=null){
                     q.get().setClient(p.getClient());
                 }
-                if (p.getReservation()!=null){
-                    q.get().setReservation(p.getReservation());
-                }
 
                 messageRepository.save(q.get());
                 return q.get();
