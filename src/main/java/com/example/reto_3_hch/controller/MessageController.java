@@ -1,7 +1,5 @@
 package com.example.reto_3_hch.controller;
 
-
-import com.example.reto_3_hch.entities.Car;
 import com.example.reto_3_hch.entities.Message;
 import com.example.reto_3_hch.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
