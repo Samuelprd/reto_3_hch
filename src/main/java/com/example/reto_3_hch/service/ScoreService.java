@@ -1,6 +1,5 @@
 package com.example.reto_3_hch.service;
 
-import com.example.reto_3_hch.entities.Reservation;
 import com.example.reto_3_hch.entities.Score;
 import com.example.reto_3_hch.repository.ScoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;

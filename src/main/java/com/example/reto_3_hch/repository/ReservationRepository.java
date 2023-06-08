@@ -1,7 +1,5 @@
 package com.example.reto_3_hch.repository;
 
-
-import com.example.reto_3_hch.entities.Car;
 import com.example.reto_3_hch.entities.Reservation;
 import com.example.reto_3_hch.repository.CrudRepository.ReservationCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
